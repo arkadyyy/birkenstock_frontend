@@ -15,13 +15,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-//   css: {
-//     preprocessorOptions: {
-//         scss: {
-//             additionalData: `@import "../src/assets/scss/global.scss";
-//                              @import "../src/assets/scss/_variables.scss";`,
-//         },
-//     },
-// },
+  css: {
+    preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/assets/scss/global.scss" as *;`,
+        },
+    },
+},
 
 })

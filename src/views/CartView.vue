@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import Landing from '@/components/Landing.vue';
 import Text from '@/components/Text.vue';
 </script>
 
 <template>
 
-    <Landing/>
-
+ <Text text = 'CART PAGE'/>
 
 
 

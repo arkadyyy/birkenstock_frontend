@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue'
+
 </script>
 
 <template>
@@ -16,6 +17,9 @@ import Navbar from './components/Navbar.vue'
 .wrapper{
   position: absolute;
   top: 80px;
+  width: 100%;
 }
+
+
 
 </style>
