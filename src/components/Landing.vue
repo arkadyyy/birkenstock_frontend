@@ -1,6 +1,15 @@
 <script lang="ts" setup>
 import Text from './Text.vue';
 
+const models = [
+    'Arizona',
+    'Boston',
+    'Madrid',
+    'Bend',
+    'Gizen',
+    'Super-Birki'
+]
+
 </script>
 
 <template>
@@ -12,6 +21,11 @@ import Text from './Text.vue';
     </div>
     <div class="bottom_section">
         <img src="../assets/images/landing_pair.png"/>
+        <Text color = "#fff"  fontSize = '0.9em' text = 'Popular two-strap sandal: The Arizona cult sandal has been popular for decades with its timeless design and is always a stylish choice.'/>
+        <div class="models_container">
+               <Text color = "#fff"  v-for="model in models" :text = "model"/>
+               <Text position = "absolute" left = "-5%" top = "-180%" fontSize = "1.4em" fontWeight = "Bold" color = "#fff" transform = "rotate(-90deg)"  text = "Models"/>
+        </div>
     </div>
    
 </div>
@@ -35,6 +49,10 @@ import Text from './Text.vue';
     background-color: $blue;
     height : 47vh;
     // position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
    }
 
    .top_section 
@@ -51,6 +69,14 @@ import Text from './Text.vue';
     width: 40em;
     height: 40em;
     object-fit: contain;
+   }
+
+   .models_container {
+    position: relative;
+    display: flex;
+    margin : 2rem;
+    justify-content: space-around;
+    width : 80%;
    }
    
    

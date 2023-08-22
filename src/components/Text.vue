@@ -1,12 +1,19 @@
 <script lang="ts" setup>
 const props = defineProps({
     text : 'string',
-    fontSize : '1em'
+    fontSize : '1em',
+    color : '#000',
+    transform : '',
+    fontWeight : 'regular',
+    position : 'relative',
+    top : '0px',
+    left : '0px'
+    // style : {}
 })
 </script>
 
 <template>
-<p :style = "{fontSize : fontSize}">{{ text }}</p>
+<p :style = "{fontSize : fontSize,color,transform : transform,fontWeight,position,top,left}">{{ text }}</p>
 </template>
 
 <style lang="scss" scoped>
