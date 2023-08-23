@@ -39,7 +39,7 @@ function handleNavigation(route : string){
         justify-content: end;
         padding : 2rem;
         z-index: 999;
-        border-bottom: 1px solid $black;
+        // border-bottom: 1px solid $black;
         background-color: $white ;
     }
     .btn{

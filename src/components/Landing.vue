@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import Text from './Text.vue';
 
+import {watch,computed,ref} from 'vue'
+// import ButtonComp from './Button.vue'
 const models = [
     'Arizona',
     'Boston',
@@ -9,21 +11,56 @@ const models = [
     'Gizen',
     'Super-Birki'
 ]
+const activeModelRef = ref<number>(0)
 
+
+watch(activeModelRef,() => {
+    changeModel()
+})
+
+function changeModel(){
+    const LAST_MODEL = models.length - 1
+    if(activeModelRef.value !== LAST_MODEL) setTimeout(() => {
+            activeModelRef.value++
+    }, 5000);
+    if(activeModelRef.value === LAST_MODEL)
+    setTimeout(() => {
+            activeModelRef.value = 0;
+    }, 5000);
+}
+
+changeModel()
+
+
+
+function isActiveModel(val : string){
+
+    return val === models[activeModelRef.value]
+
+}
+
+
+
+
+function test(){
+    alert('btn works')
+}
 </script>
 
 <template>
 <div class="container">
-  
+    
     <div class="top_section">
         <Text fontSize='1.2em' text = 'The jesus sandal we all want'/>
         <img src="../assets/images/birkenstock_logo.png"/>
+        <!-- <ButtonComp position = "absolute" text = "buy nowww" /> -->
+        <button @click="test" class="btn" >buy now</button>
     </div>
     <div class="bottom_section">
         <img src="../assets/images/landing_pair.png"/>
         <Text color = "#fff"  fontSize = '0.9em' text = 'Popular two-strap sandal: The Arizona cult sandal has been popular for decades with its timeless design and is always a stylish choice.'/>
         <div class="models_container">
-               <Text color = "#fff"  v-for="model in models" :text = "model"/>
+               <button  :class = "{model_btn_active :isActiveModel(model),model_btn :!isActiveModel(model)}"  v-for="model in models">{{ model }}</button>
                <Text position = "absolute" left = "-5%" top = "-180%" fontSize = "1.4em" fontWeight = "Bold" color = "#fff" transform = "rotate(-90deg)"  text = "Models"/>
         </div>
     </div>
@@ -34,11 +71,11 @@ const models = [
 <style lang="scss" scoped>
    .container {
     background-color:$white ;
-    min-height: 100vh;
+    // min-height: 100vh;
    }
    .top_section {
     background-color: $white;
-    height: 50vh;
+    height: 40vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -47,7 +84,7 @@ const models = [
    }
    .bottom_section {
     background-color: $blue;
-    height : 47vh;
+    height : 50vh;
     // position: relative;
     display: flex;
     flex-direction: column;
@@ -55,18 +92,20 @@ const models = [
     justify-content: end;
    }
 
-   .top_section 
+
    .top_section img {
-    width : 35em;
-    height: 10em;
+    width : 45em;
+    height: 13em;
     object-fit: contain;
+
+    padding : 1rem;
 
    }
    .bottom_section img {
     position: absolute;
-    top : 5em;
-    left : 26%;
-    width: 40em;
+    top : 2em;
+    left : 30%;
+    width: 33em;
     height: 40em;
     object-fit: contain;
    }
@@ -75,8 +114,64 @@ const models = [
     position: relative;
     display: flex;
     margin : 2rem;
+    margin-bottom: 3rem;
     justify-content: space-around;
     width : 80%;
+   }
+
+   .btn {
+    border : 1px solid $black;
+        box-shadow: 2px 3px 0px $black;
+        border-radius: 3px;
+        text-transform: uppercase;
+        padding : 1rem;
+        height: 10px;
+        min-width: 100px;
+        color: $black;
+        font-weight :500;
+        position: absolute;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left : 28%;
+        z-index: 999;
+        top : 78%;
+        width: 120px;
+        cursor: pointer;
+   }
+
+   .model_btn {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    font-size: 1em;
+    cursor: pointer;
+   
+    
+   }
+      .model_btn:after{
+    content: "";
+  border-bottom: 3px solid transparent;
+  margin-top: 0.3rem;
+  width: 60%;
+  display: block;
+   }
+   .model_btn_active {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.6s ease-in;
+    
+   }
+   .model_btn_active:after{
+    content: "";
+  border-bottom: 3px solid $white;
+  margin-top: 0.3rem;
+  width: 60%;
+  display: block;
    }
    
    
