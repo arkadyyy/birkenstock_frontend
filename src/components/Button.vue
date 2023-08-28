@@ -13,15 +13,15 @@ const props = defineProps({
 
 
 <template>
-<button :style="{position,top,left,width,height}" @click="() => handler()" class="container">
-    {{ text }}
+<button :style="{position,top,left,width,height}" @click="() => handler()" class="btn_container">
+  <slot></slot>
 </button>
 </template>
 
 <style lang="scss" scoped>
-    .container {
-        border : 1px solid $black;
-        box-shadow: 1px 5px 0px $black;
+   .btn_container {
+    border : 1px solid $black;
+        box-shadow: 2px 3px 0px $black;
         border-radius: 3px;
         text-transform: uppercase;
         padding : 1rem;
@@ -29,7 +29,16 @@ const props = defineProps({
         min-width: 100px;
         color: $black;
         font-weight :500;
-        
-    }
+        position: absolute;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left : 28%;
+        z-index: 10;
+        top : 78%;
+        width: 120px;
+        cursor: pointer;
+   }
 
 </style>

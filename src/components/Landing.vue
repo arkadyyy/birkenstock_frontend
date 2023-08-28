@@ -2,7 +2,10 @@
 import Text from './Text.vue';
 
 import {watch,computed,ref} from 'vue'
-// import ButtonComp from './Button.vue'
+import Button from './Button.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const models = [
     'Arizona',
     'Boston',
@@ -42,19 +45,22 @@ function isActiveModel(val : string){
 
 
 
-function test(){
-    alert('btn works')
+function navigateToShoes(){
+   router.push('/shoes')
 }
 </script>
 
 <template>
-<div class="container">
     
+<div class="container">
+  
     <div class="top_section">
+        <Button :handler = "navigateToShoes">buy now</Button>
         <Text fontSize='1.2em' text = 'The jesus sandal we all want'/>
         <img src="../assets/images/birkenstock_logo.png"/>
-        <!-- <ButtonComp position = "absolute" text = "buy nowww" /> -->
-        <button @click="test" class="btn" >buy now</button>
+      
+        <!-- <button @click="test" class="btn" >buy now</button> -->
+        
     </div>
     <div class="bottom_section">
         <img src="../assets/images/landing_pair.png"/>
@@ -119,27 +125,27 @@ function test(){
     width : 80%;
    }
 
-   .btn {
-    border : 1px solid $black;
-        box-shadow: 2px 3px 0px $black;
-        border-radius: 3px;
-        text-transform: uppercase;
-        padding : 1rem;
-        height: 10px;
-        min-width: 100px;
-        color: $black;
-        font-weight :500;
-        position: absolute;
-        background-color: $white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        left : 28%;
-        z-index: 999;
-        top : 78%;
-        width: 120px;
-        cursor: pointer;
-   }
+//    .btn {
+//     border : 1px solid $black;
+//         box-shadow: 2px 3px 0px $black;
+//         border-radius: 3px;
+//         text-transform: uppercase;
+//         padding : 1rem;
+//         height: 10px;
+//         min-width: 100px;
+//         color: $black;
+//         font-weight :500;
+//         position: absolute;
+//         background-color: $white;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         left : 28%;
+//         z-index: 10;
+//         top : 78%;
+//         width: 120px;
+//         cursor: pointer;
+//    }
 
    .model_btn {
     background-color: transparent;

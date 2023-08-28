@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const props = defineProps({
-    text : 'string',
+    text : String,
     fontSize : '1em',
     color : '#000',
     transform : '',
@@ -13,7 +13,7 @@ const props = defineProps({
 </script>
 
 <template>
-<p :style = "{fontSize : fontSize,color,transform : transform,fontWeight,position,top,left}">{{ text }}</p>
+<p :style = "{fontSize : fontSize,color : color === 'blue' ? '#004B85' : '#000',transform : transform,fontWeight,position,top,left}">{{ text }}</p>
 </template>
 
 <style lang="scss" scoped>

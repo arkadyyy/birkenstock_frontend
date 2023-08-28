@@ -6,7 +6,9 @@
 <template>
 
     <div class="container">
-        <h2>footer</h2>
+       
+        <img src="../assets/images/birkenstock_logo.png"/>
+        <img src="../assets/images/birkenstock_logo_2.png"/>
     </div>
 </template>
 
