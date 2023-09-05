@@ -1,13 +1,19 @@
 <script setup>
 import Text from './Text.vue'
 import { useRouter } from 'vue-router';
+
 const props = defineProps({
    shoe : Object
    
 })
+
 const router = useRouter()
+
 function handleNavigation(){
-    router.push(`/shoe/${shoe_id}`)
+ 
+    console.log(props.shoe)
+
+    router.push(`/shoe/${props.shoe.id}`)
 }
 </script>
 
@@ -24,10 +30,11 @@ function handleNavigation(){
 
 <style lang="scss" scoped>
 .shoe_container {
-    width : 31%;
+    width : 27%;
     // background-color: red;
-    margin :1rem;
-    height : 400px;
+    margin :2rem;
+    margin-bottom: 7rem;
+    height : 350px;
     display: flex;
     flex-direction: column;
     align-items: center;

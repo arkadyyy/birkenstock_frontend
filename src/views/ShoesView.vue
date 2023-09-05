@@ -10,6 +10,7 @@ const arr  =[1,2,3,4,5,6,7,7,7,7,7]
 
 const dummyData = [
     {
+        id : '123',
         price : '150$',
         text : 'warm brown',
         model : 'Boston',
@@ -17,6 +18,7 @@ const dummyData = [
         color : 'brown'
     },
     {
+        id : '123',
         price : '150$',
         text : 'warm brown',
         model : 'Boston',
@@ -24,6 +26,7 @@ const dummyData = [
         color : 'brown'
     },
     {
+        id : '123',
         price : '150$',
         text : 'warm brown',
         model : 'Boston',
@@ -31,6 +34,7 @@ const dummyData = [
         color : 'brown'
     },
     {
+        id : '123',
         price : '150$',
         text : 'warm brown',
         model : 'Boston',
@@ -38,6 +42,7 @@ const dummyData = [
         color : 'brown'
     },
     {
+        id : '123',
         price : '150$',
         text : 'warm brown',
         model : 'Boston',
@@ -45,6 +50,7 @@ const dummyData = [
         color : 'brown'
     },
     {
+        id : '123',
         price : '150$',
         text : 'warm brown',
         model : 'Boston',
@@ -53,6 +59,7 @@ const dummyData = [
         color : 'brown'
     },
     {
+        id : '123',
         price : '150$',
         text : 'warm brown',
         model : 'Boston',
@@ -65,14 +72,29 @@ const dummyData = [
 <template>
     <div class="shoes_container">
         <Header>
+            <v-menu>
+      <template v-slot:activator="{ props }">
+
+      </template>
+      <v-list>
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+          :value="index"
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
             <Text  fontWeight = 'bold' fontSize = '5em' text = "FIND YOUR PAIR"/>
             <FilterShoes/>
+            
             <div class="shoes">
                     <Shoe v-for="shoe in dummyData" :shoe = "shoe"/>
             </div>
         </Header>
     </div>
-    <Footer/>
+   
 </template>
 
 

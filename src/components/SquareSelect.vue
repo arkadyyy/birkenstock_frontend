@@ -1,23 +1,55 @@
 <script setup>
 import Text from './Text.vue'
+import {ref,reactive,computed,watch,watchEffect} from 'vue'
+
+
+
     const props = defineProps({
         value : {
             default : null,
             type :String
         },
-        color : {
-            default : null,
+        type : {
+            default : 'text',
             type : String
+        },
+        handler : {
+            default : null,
+            type : Object
+        },
+        selectedBtns : {
+            default : [],
+            type : Array
+        },
+        isSelected : {
+            default : false,
+            type : Boolean
         }
     })
+
+
+    // const discountedPrice = computed(() => {
+    //   return price.value * 0.9; // Applying a 10% discount
+    // });
+
+
+function test(){
+    console.log(props.selectedBtns)
+}
+
+
+
+
+
 </script>
 
 <template>
-    <div class="square_container">
-        <!-- <h2>{{ value }}</h2> -->
-        <!-- <div v-if="color" :style = "{backgroundColor : color}" class="color"></div> -->
-       <Text color = "#000" fontWeight = 'light' fontSize = '1em' :text = "value" />
-    </div>
+    <v-btn
+    :style = "{backgroundColor : isSelected ? '#004B85' : '#fff',color :isSelected ? '#fff' : '#000' }" 
+     @click = "handler(value)"  variant = "flat" class="mr-2 mb-2"  :ripple="false" size="small" v-if="type==='color'">
+        <div class="color"  :style = "{backgroundColor : value}"></div>
+    </v-btn>
+    <v-btn v-if="type !== 'color'" :style = "{backgroundColor : isSelected ? '#004B85' : '#fff',color :isSelected ? '#fff' : '#000' }"  @click = "handler(value)"  variant = "flat" class="mr-2 mb-2"  :ripple="false" size="small">{{ value }}</v-btn>
 </template>
 
 
@@ -37,6 +69,7 @@ import Text from './Text.vue'
         width : 20px;
         height : 20px;
         border-radius: 50%;
+        border : 2px solid #fff;
     }
 
 </style>

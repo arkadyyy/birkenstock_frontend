@@ -15,7 +15,7 @@ import Text from '@/components/Text.vue';
     <SecondSection/>
     <ThirdSection/>
     <FourthSection/>
-    <Footer/>
+
 
 
 
