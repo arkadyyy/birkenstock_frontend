@@ -7,6 +7,11 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import "@mdi/font/css/materialdesignicons.css";
+import { createPinia } from 'pinia'
+
+
+const pinia = createPinia()
+
 
 const customDarkTheme = {
   dark:false,
@@ -19,22 +24,20 @@ const customDarkTheme = {
     info: "#2196F3",
     success: "#4caf50",
     warning: "#fb8c00",
+  
   },
 };
 
 
  const vuetify =  createVuetify({
+
   theme: {
-    options :{
-      customProperties : true
-    },
+  
     defaultTheme: "customDarkTheme",
     themes: {
       customDarkTheme,
+      
     },
-    fonts : {
-      family : "Inter, sans-serif"
-    }
   },
   components,
   directives,
@@ -50,6 +53,7 @@ const customDarkTheme = {
 
 
 createApp(App)
+.use(pinia)
 .use(vuetify)
   .use(router)
   

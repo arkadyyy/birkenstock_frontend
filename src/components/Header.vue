@@ -1,4 +1,7 @@
 <script setup>
+
+
+
 const props = defineProps({
     padding :{
         type : String,
@@ -18,8 +21,8 @@ const props = defineProps({
 
 <style lang="scss" scoped>
     .header_container {
-        width : 100%;
-        height : 100%;
+        // width : 100%;
+        // height : 100%;
         display: flex;
         flex-direction: column;
         align-items: start;

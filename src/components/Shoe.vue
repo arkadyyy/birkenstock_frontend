@@ -3,7 +3,10 @@ import Text from './Text.vue'
 import { useRouter } from 'vue-router';
 
 const props = defineProps({
-   shoe : Object
+   shoe : Object,
+   displayHeart : {
+    default : true
+   }
    
 })
 
@@ -20,7 +23,7 @@ function handleNavigation(){
 
 <template>
     <div @click = "handleNavigation" class="shoe_container">
-        <img class="heart" src="../assets/images/outlined_heart.png"/>
+        <img v-if="displayHeart" class="heart" src="../assets/images/outlined_heart.png"/>
         <img :src="shoe.img"/>
        <Text :text = "shoe.text" />
        <Text :text = "shoe.color" />
