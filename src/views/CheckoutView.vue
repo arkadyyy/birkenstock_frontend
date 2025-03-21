@@ -22,6 +22,8 @@ const currentStep = computed(() => {
 
 
 <template>
+
+    
     <Header>
         <Text fontWeight = 'bold' fontSize = '5em' text = "CHECKOUT"/>
         <Text fontSize = '1.4em' fontWeight = 'bold' :text = "currentStep"/>
@@ -40,7 +42,7 @@ const currentStep = computed(() => {
 <style lang="scss" scoped>
 
 .checkout_container {
-    height : 100vh;
+    min-height : 50vh;
     // background-color: red;
     // position: relative;
     // display: flex;

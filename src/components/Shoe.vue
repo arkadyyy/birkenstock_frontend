@@ -34,7 +34,6 @@ function handleNavigation(){
 <style lang="scss" scoped>
 .shoe_container {
     width : 27%;
-    // background-color: red;
     margin :2rem;
     margin-bottom: 7rem;
     height : 350px;
